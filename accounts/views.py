@@ -28,9 +28,9 @@ GOOGLE_CALLBACK_URI = get_secret("GOOGLE_CALLBACK_URI")
 GOOGLE_CLIENT_ID = get_secret("GOOGLE_CLIENT_ID")
 GOOGLE_SECRET = get_secret("GOOGLE_SECRET")
 
-# def google_login(request):
-#     scope = GOOGLE_SCOPE_USERINFO  # + "https://www.googleapis.com/auth/drive.readonly" 등 scope 설정 후 자율적으로 추가
-#     return redirect(f"{GOOGLE_REDIRECT}?client_id={GOOGLE_CLIENT_ID}&response_type=code&redirect_uri={GOOGLE_CALLBACK_URI}&scope={scope}")
+def google_login(request):
+    scope = GOOGLE_SCOPE_USERINFO  # + "https://www.googleapis.com/auth/drive.readonly" 등 scope 설정 후 자율적으로 추가
+    return redirect(f"{GOOGLE_REDIRECT}?client_id={GOOGLE_CLIENT_ID}&response_type=code&redirect_uri={GOOGLE_CALLBACK_URI}&scope={scope}")
 
 def google_callback(request):
     code = request.GET.get("code")  # Query String 으로 넘어옴
