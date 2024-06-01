@@ -34,7 +34,7 @@ def google_login(request):
 
 def google_callback(request):
     code = request.GET.get("code")  # Query String 으로 넘어옴
-
+    return JsonResponse(code, safe=False)
     # token_req = requests.post(
     #     f"https://oauth2.googleapis.com/token?client_id={GOOGLE_CLIENT_ID}&client_secret={GOOGLE_SECRET}&code={code}&grant_type=authorization_code&redirect_uri={GOOGLE_CALLBACK_URI}"
     # )
@@ -82,7 +82,7 @@ def google_callback(request):
     #     return res
     # return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def google_callback(request):
+def google_callback_re(request):
     code = request.GET.get("code")  # Query String 으로 넘어옴
 
     token_req = requests.post(

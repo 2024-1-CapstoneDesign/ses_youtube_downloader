@@ -16,7 +16,7 @@ class OAuthSerializer(serializers.ModelSerializer):
 
         if user is None:
             # Create a new user if one does not exist
-            user = User.objects.create(email=email)
+            user = User.objects.create(email=email, username=email)
 
         token = RefreshToken.for_user(user)
         refresh_token = str(token)
