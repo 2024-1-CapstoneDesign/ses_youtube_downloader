@@ -14,6 +14,7 @@ from pathlib import Path
 import os, json
 from django.core.exceptions import ImproperlyConfigured
 from datetime import timedelta
+
 import django
 django.setup()
 
@@ -68,8 +69,6 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     'rest_framework_simplejwt',
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 
